@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "UploadImage";
+}
+
+<a href="/user/indexuser" class="btn btn-info btn-block">View My Images</a>
+<h2 style="text-align: center">Upload Your Image</h2>
+<br />
+<div class="row">
+    <div class="col-md-4 col-lg-offset-4 well">
+        <form method="post" action="/user/upload" enctype="multipart/form-data">
+            <br />
+            <input type="file" class="form-control" name="image" />
+            <br />
+            <label>Create Your Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" />
+            <br />
+            <button class="btn btn-info btn-block">Upload</button>
+        </form>
+    </div>
+</div>
+

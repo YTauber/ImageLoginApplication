@@ -1,0 +1,26 @@
+﻿@using ImageLoginApplication.Models
+@model LogInViewModel
+
+<h3 style="text-align: center; font-weight: bold">Log In</h3>
+<br />
+<div class="row">
+    <div class="col-md-4 col-lg-offset-4 well">
+
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <h3 class="alert-danger" style="padding: 15px; text-align: center">@Model.Message</h3>
+        }
+
+        <form method="post" action="/home/login">
+            <br />
+            <label>Enter You Email</label>
+            <input type="text" class="form-control" name="email" placeholder="Email" />
+            <br />
+            <label>Enter Your Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" />
+            <br />
+            <br />
+            <button class="btn btn-info btn-block">Log In</button>
+        </form>
+    </div>
+</div>

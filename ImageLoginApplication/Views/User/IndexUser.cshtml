@@ -1,0 +1,35 @@
+﻿@using ImageLoginApplication.Models
+@using ClassLibrary1
+@model UserViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (!string.IsNullOrEmpty(Model.id))
+{
+    <div style="text-align: center" class="alert alert-success">
+        <strong>
+            You have succesfully uploaded your image!!
+            You can share it with this link <a href="http://localhost:54349/Home/ViewImage?id=@Model.id">
+            http://localhost:54349/Home/ViewImage?id=@Model.id</a>
+            With the password of "@Model.password"
+        </strong>
+    </div>
+}
+
+<a href="/user/uploadimage" class="btn btn-info btn-block">Upload New Image</a>
+<hr>
+<div class="row">
+    <div class="col-md-6 col-lg-offset-3">
+        @foreach (Image i in Model.Images)
+        {
+        <div class="well" style="text-align: center; margin: 25px">
+            <img style="width: 450px" src="/UploadedImages/@i.FileName" />
+            <hr />
+            <label>Views: @i.Views</label>
+        </div>
+           
+        }
+    </div>
+</div>
+

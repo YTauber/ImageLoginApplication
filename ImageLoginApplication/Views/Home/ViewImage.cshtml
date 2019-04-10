@@ -1,0 +1,44 @@
+﻿@using ImageLoginApplication.Models
+@model ViewImageModel
+@{
+    ViewBag.Title = "ViewImage";
+}
+
+
+@if (!Model.HasPermission)
+{
+    
+    <h2 style="text-align: center">View Image</h2>
+    <br />
+    <div class="row">
+        <div class="col-md-4 col-lg-offset-4 well">
+
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <h3 class="alert-danger" style="padding: 15px; text-align: center">@Model.Message</h3>
+            }
+
+            <form method="post" action="/home/viewimage">
+                <br />
+                <label>Enter The Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Password" />
+                <br />
+                <input type="hidden" name="id" value="@Model.image.Id" />
+                <button class="btn btn-info btn-block">View</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div style="text-align: center" class="col-md-6 col-lg-offset-3 well">
+            <img style="width: 450px" src="~/UploadedImages/@Model.image.FileName" />
+            <br />
+            <br />
+            <h7><span class="glyphicon glyphicon-eye-open"></span> Views: @Model.image.Views</h7>
+        </div>
+    </div>
+}
+
+
